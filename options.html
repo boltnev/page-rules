@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Page Rules</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <div id="page-rule-list" class="container">
+      <div id="new" class="options-card">
+        <div class="options-header">
+          NEW PAGE RULE
+        </div>
+        <form class="options-body">
+          <input type="hidden" name="id" />
+          <input type="text" name="title" class="options-body__title" placeholder="Title" />
+          <input type="text" name="regex" class="options-body__regex" placeholder="Site Regex" />
+          <label>Enabled
+            <input type="checkbox" name="enabled" class="options-body__enabled" placeholder="Enabled" checked=checked />
+          </label>
+          <select name="type">
+            <option value="custom-css">CSS</option>
+            <option value="custom-request-header">REQUEST_HEADER</option>
+          </select>
+          <textarea name="content" class="options-body__content" placeholder="Rule Content"></textarea>
+          <button class="options-body__submit">ADD_NEW</button>
+        </form>
+      </div>
+
+    </div>
+
+    <script type="application/javascript" src="vendor/jquery-3.4.1.min.js"></script>
+    <script type="application/javascript" src="options.js"></script>
+  </body>
+</html>

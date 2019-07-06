@@ -1,0 +1,32 @@
+{
+  "name": "Page Rules",
+  "description": "Custom css+Custom Headers+other custom things",
+  "version": "1.0",
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+
+  "options_page": "options.html",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "Page Rules!",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": [ "background.js" ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["vendor/jquery-3.4.1.min.js", "content.js"]
+    }
+  ],
+
+  "manifest_version": 2
+}
