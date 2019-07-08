@@ -2,27 +2,29 @@ var storage = chrome.storage.local;
 
 var bkg = chrome.extension.getBackgroundPage();
 
-var cachedData = {}
+var cachedData = {};
 
 // cache heater
 setInterval(function(){
+  var _cachedData = {};
   storage.get('items', function(items){
       if (!items.items){
           items.items = [];
       }
-      window.existingItems = items.items;
       for(var i = 0; i < items.items.length; i++){
           // var k = items.items[i];
-          let id = items.items[i];
+          var id = items.items[i];
           storage.get(id, function(rule){
             for (var key in rule) {
                 // Костыль из-за неудачной структуры данных
-                if (rule.hasOwnProperty(key)) {
-                  if(rule[key] && rule[key].type === 'custom-request-header' && rule[key].enabled){
-                    console.log(rule)
-                    cachedData[rule[key].regex] = rule[key];
+                  if (rule.hasOwnProperty(key)) {
+                    if(rule[key] && rule[key].type === 'custom-request-header' && rule[key].enabled){
+                      _cachedData[rule[key].regex] = rule[key];
+                    }
                   }
-
+                if(i == items.items.length){
+                  cachedData = _cachedData;
+                  console.log(cachedData);
                 }
             }
           });

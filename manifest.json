@@ -10,11 +10,16 @@
     "webRequestBlocking",
     "<all_urls>"
   ],
+  "icons": { 
+    "48": "assets/icon_48_48.png",
+    "64": "assets/icon_64_64.png",
+   "128": "assets/icon_128_128.png" 
+  },
 
   "options_page": "options.html",
 
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "assets/icon_128_128.png",
     "default_title": "Page Rules!",
     "default_popup": "popup.html"
   },

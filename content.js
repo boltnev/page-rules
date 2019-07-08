@@ -16,9 +16,9 @@ storage.get('items', function(items){
               if (rule.hasOwnProperty(key)) {
                 //console.log(rule, key, rule[key]);
                 if(rule[key] && rule[key].type === 'custom-css' && rule[key].enabled){
-                    console.log("css rule", rule[key]);
+                    //console.log("css rule", rule[key]);
                     if(window.location.href.match(rule[key].regex)){
-                        console.log("matched", rule[key]);
+                        console.log("custom css rule matched", rule[key]);
                         $('head').append('<style>'+ rule[key].content+'</style>');
                     }
                 }
